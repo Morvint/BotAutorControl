@@ -21,12 +21,13 @@ load_dotenv()
 
 token = os.getenv('TOKEN')
 admin_id = os.getenv('ADMIN_ID')
+superuser = os.getenv('SUPERUSER')
 
 bot = Bot(token=token, parce_mode='HTML')
 dp = Dispatcher()
 
 async def start_bot(bot: Bot):
-    await bot.send_message(1208437676, text='<b>Бот запущен</b>', parse_mode=ParseMode.HTML)
+    await bot.send_message(superuser, text='<b>Бот запущен</b>', parse_mode=ParseMode.HTML)
 
 #Регистрация команды стар и запуска бота
 dp.startup.register(start_bot)
