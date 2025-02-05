@@ -1,4 +1,5 @@
 .venv/
+.obsidian/
 *.env
 *.xlsx
 *.db
