@@ -33,7 +33,7 @@ async def register_phone(message: Message, state: FSMContext):
         msg = f'Приятно познакомиться, {reg_name}\nВаш телефон: {reg_phone}\nПожалуйста, ожидайте, когда вашу регистрацию подвердят'
         await message.answer(text=msg)
         db = Database(os.getenv('DATABASE_NAME'))
-        # db.add_user(reg_name, reg_phone, message.from_user.id)
+        db.add_user_wait_reg(reg_name, reg_phone, message.from_user.id)
         await state.clear()
     else:
         await message.answer(f'Номер указан в неправильном формате.\n' +
